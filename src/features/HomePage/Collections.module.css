@@ -1,0 +1,129 @@
+.container {
+    background: linear-gradient(to right, #a08149, #E2A64E);
+    padding: 3% 25px;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading {
+    margin: 10px -3% 30px;
+    padding: 5px 20px;
+    text-align: center;
+    font-size: 2rem;
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+}
+.heading::before, .heading::after {
+    display: block;
+    content: '';
+    position: absolute;
+    background-color: #5F5525;
+    width: 50vw;
+    height: 100%;
+}
+.heading::before {
+    right: 100%;
+}
+.heading::after {
+    left: 100%;
+    bottom: 0;
+    transform: translateY(5px);
+}
+/* ********************************* */
+.tiles {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.tile {
+    margin: 0 20px;
+    display: grid;
+    position: relative;
+    border-radius: 15px;
+    cursor: pointer;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    transition: 
+        transform 250ms linear,
+        box-shadow 250ms linear;
+}
+.tile:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px black;
+}
+.tile::before {
+    position: absolute;
+    border-radius: 15px;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    content: '';
+    display: block;
+    background: transparent;
+    transition: background-color linear 200ms;
+}
+.tile:hover::before {
+    background: rgba(0,0,0,0.4);
+}
+
+.tile p {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    text-align: center;
+    width: 125px;
+    padding: 5px;
+    font-size: 1.3rem;
+    align-self: center;
+    justify-self: center;
+    z-index: 1;
+    border: medium solid whitesmoke;
+    display: none;
+    transition: display 250ms linear;
+}
+.tile:hover p {
+    display: block;
+}
+
+.tile img {
+    border-radius: 15px;
+    width: 200px;
+    height: 200px;
+    padding: 5px;
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+.tile:nth-child(1) img {
+    background: cornflowerblue;
+}
+.tile:nth-child(2) img {
+    background: palevioletred;
+}
+.tile:nth-child(3) img {
+    background: yellowgreen;
+}
+
+@media (max-width: 768px) {
+    .tiles {
+        flex-direction: column;
+    }
+    .tile {
+        margin: 20px 0;
+    }
+    .tile img {
+        width: 275px;
+        height: 275px;
+    }
+}
+
+@media (max-width: 400px) {
+    .tile img {
+        width: 200px;
+        height: 200px;
+    }
+    .heading {
+        font-size: 1.5rem;
+    }
+}

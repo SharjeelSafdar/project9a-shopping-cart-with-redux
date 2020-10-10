@@ -1,0 +1,55 @@
+.featureImage {
+    background: linear-gradient(to right, #E2A64E, #a08149);
+    padding: 3%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.greeting {
+    grid-column: 0/1;
+    grid-row: 0/1;
+    color: whitesmoke;
+    font-size: 4rem;
+    margin: auto 0;
+}
+.featureShoe {
+    width: 100%;
+}
+
+@media (max-width: 800px) {
+    .greeting {
+        font-size: 3.75rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .featureImage {
+        grid-template-columns: 1fr;
+    }
+    .greeting {
+        text-align: center;
+        padding: 5%;
+    }
+    .featureShoe {
+        max-height: 500px;
+        margin: 0 auto;
+        width: auto;
+    }
+}
+
+@media (max-width: 500px) {
+    .greeting {
+        font-size: 3rem;
+    }
+    .featureShoe {
+        width: 300px;
+    }
+}
+
+@media (max-width: 400px) {
+    .greeting {
+        font-size: 2.5rem;
+    }
+    .featureShoe {
+        width: 250px;
+    }
+}
