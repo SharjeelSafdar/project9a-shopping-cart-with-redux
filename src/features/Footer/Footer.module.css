@@ -1,0 +1,27 @@
+.container {
+    background-color: #5F5525;
+    color: whitesmoke;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container p {
+    font-size: 1.3rem;
+}
+.container p:nth-child(2) {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.git {
+    font-size: 1.7rem;
+    text-decoration: none;
+    color: whitesmoke;
+    margin-top: 10px;
+    transition: transform linear 200ms;
+}
+.git:hover {
+    transform: scale(1.1);
+}
