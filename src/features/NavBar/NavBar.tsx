@@ -12,7 +12,7 @@ export const NavBar: React.FC<{}> = () => {
     return (
         <div className={styles.container}>
             <h1 className={styles.logo}>
-                <Link to="./">
+                <Link to="./" data-testid="logo-navlink">
                     Shoes Land
                 </Link>
             </h1>
