@@ -6,7 +6,7 @@ import { Collections } from './Collections';
 export const HomePage: React.FC<{}> = () => {
     
     return (
-        <div>
+        <div data-testid="home-page">
             <FeatureImage />
             <Collections />
         </div>

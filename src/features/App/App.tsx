@@ -1,12 +1,17 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 // Custom components
-import { NavBar, HomePage, Footer } from '../';
+import { NavBar, HomePage, Footer, ProductsIndex } from '../';
 
 export const App: React.FC<{}> = () => {
   return (
     <div className="App">
       <NavBar />
-      <HomePage />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/cart" element={<div></div>} />
+        <Route path="/:category" element={<ProductsIndex />} />
+      </Routes>
       <Footer />
     </div>
   );

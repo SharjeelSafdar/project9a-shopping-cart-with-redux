@@ -1,0 +1,59 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    background: whitesmoke;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 0 10px black;
+}
+
+.card p {
+    padding: 3px 10px;
+}
+
+.shoeImage {
+    height: 200px;
+    margin: auto;
+}
+
+.shoeName, .shoePrice {
+    font-size: 1.3rem;
+}
+
+.shoeCategory {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.addToCart, .details {
+    cursor: pointer;
+    width: 175px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    margin: 10px auto;
+    font-size: 1rem;
+    transition: all linear 250ms;
+}
+.addToCart {
+    background: #1AC1F9;
+}
+.details {
+    background: #D46223;
+}
+.addToCart:hover, .details:hover {
+    transform: scale(1.05);
+}
+.addToCart:hover {
+    background-color: #16a5d4;
+}
+.details:hover {
+    background-color: #b8541e;
+}
+
+@media (max-width: 350px) {
+    .card {
+        border-radius: 0;
+    }
+}

@@ -70,6 +70,8 @@
 }
 
 .tile p {
+    text-decoration: none;
+    color: whitesmoke;
     grid-column: 1/2;
     grid-row: 1/2;
     text-align: center;
@@ -85,6 +87,9 @@
 }
 .tile:hover p {
     display: block;
+}
+a {
+    text-decoration: none;
 }
 
 .tile img {
