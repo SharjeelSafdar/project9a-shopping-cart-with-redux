@@ -3,3 +3,4 @@ export { NavBar } from './NavBar/NavBar';
 export { HomePage } from './HomePage/HomePage';
 export { Footer } from './Footer/Footer';
 export { ProductsIndex } from './ProductsIndex/ProductsIndex';
+export { Cart } from './Cart/Cart';
