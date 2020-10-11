@@ -12,6 +12,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@types/react-redux": "^7.1.9",
     "@wellyshen/use-web-animations": "^0.5.5",
     "classnames": "^2.2.6",
     "history": "^5.0.0",
