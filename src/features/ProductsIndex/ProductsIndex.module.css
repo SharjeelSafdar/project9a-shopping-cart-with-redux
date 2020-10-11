@@ -2,6 +2,7 @@
     background: linear-gradient(to right, #E2A64E, #a08149);
     color: whitesmoke;
     padding: 3%;
+    min-height: 80vh;
 }
 
 .heading {
