@@ -57,8 +57,8 @@ describe('Tests for <App />', () => {
         act(() => {fireEvent.click( getByTestId('home-navlink'))});
         expect( getByTestId('home-page') ).toBeInTheDocument();
         
-        // act(() => {fireEvent.click( getByTestId('cart-navlink'))});
-        // expect( getByTestId('cart-page') ).toBeInTheDocument();
+        act(() => {fireEvent.click( getByTestId('cart-navlink'))});
+        expect( getByTestId('cart-page') ).toBeInTheDocument();
 
         act(() => {fireEvent.click( getByTestId('logo-navlink'))});
         expect( getByTestId('home-page') ).toBeInTheDocument();

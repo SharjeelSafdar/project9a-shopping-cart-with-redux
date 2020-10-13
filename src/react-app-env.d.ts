@@ -15,3 +15,13 @@ type Shoes = {
     kids: ShoesList;
     shoesById: ShoesList;
 }
+
+type CartItem = {
+    id: string;
+    name: string;
+    price: number;
+    category: string;
+    image: string;
+    quantity: number;
+    includedInSum: boolean;
+}

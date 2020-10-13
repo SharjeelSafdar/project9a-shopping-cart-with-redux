@@ -1,8 +1,10 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import products from '../features/ProductsIndex/productsSlice';
+import productsReducer from '../features/ProductsIndex/productsSlice';
+import cartReducer from '../features/Cart/cartSlice';
 
 const rootReducer = combineReducers({
-    products,
+    products: productsReducer,
+    cart: cartReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
