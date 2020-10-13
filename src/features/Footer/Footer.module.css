@@ -9,6 +9,7 @@
 
 .container p {
     font-size: 1.3rem;
+    text-align: center;
 }
 .container p:nth-child(2) {
     font-size: 1.1rem;
