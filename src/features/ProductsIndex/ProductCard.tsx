@@ -1,8 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/rootReducer';
 import { FaCartPlus } from 'react-icons/fa';
 import { MdDescription } from 'react-icons/md';
+
+import { addToCart } from '../Cart/cartSlice';
 import styles from './ProductCard.module.css';
 
 interface Props {
@@ -11,13 +14,32 @@ interface Props {
 
 export const ProductCard: React.FC<Props> = ({ shoeId }) => {
     const shoe: ShoeData = useSelector((state: RootState) => state.products.shoesById[shoeId]);
+    const dispatch = useDispatch();
+
+    const add = () => {
+        const item: CartItem = {
+            id: shoeId,
+            name: shoe.name,
+            price: +shoe.price.slice(1),
+            category: shoe.category,
+            image: shoe.images[0],
+            quantity: 1,
+            includedInSum: false,
+        };
+        dispatch( addToCart(item) );
+    }
+
     return (
         <div className={styles.card} data-testid="shoe-card">
             <img src={shoe.images[0]} alt="shoe" title={shoe.name} className={styles.shoeImage} />
             <p className={styles.shoeName}>{shoe.name}</p>
             <p className={styles.shoeCategory}>{`Category: ${shoe.category}`}</p>
             <p className={styles.shoePrice}>{shoe.price}</p>
-            <button className={styles.addToCart} data-testid="add-btn">
+            <button
+                onClick={() => add()}
+                className={styles.addToCart}
+                data-testid="add-btn"
+            >
                 <FaCartPlus /> Add to Cart
             </button>
             <button className={styles.details} data-testid="details-btn">

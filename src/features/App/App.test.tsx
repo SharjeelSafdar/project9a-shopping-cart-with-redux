@@ -3,11 +3,11 @@ import { render, cleanup, act, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider as ReduxProvider } from 'react-redux';
 import { App } from './App';
-import store from '../../store/store';
+import createMockingStore from '../../store/mockingStore';
 
 const renderApp = (path?: string) => render(
     <MemoryRouter initialEntries={!!path ? [path] : undefined}>
-        <ReduxProvider store={store}>
+        <ReduxProvider store={createMockingStore()}>
             <App />
         </ReduxProvider>
     </MemoryRouter>
@@ -83,5 +83,24 @@ describe('Tests for <App />', () => {
 
         act(() => {fireEvent.click( getByTestId('kids-collection'))});
         expect( getByText("Kids' Shoes") ).toBeInTheDocument();
+    });
+
+    it('Add to cart button in <ProductCard /> works correctly', () => {
+        const { getAllByTestId, getByTestId, getByText } = renderApp('/men');
+        expect( getByText("Men's Shoes") ).toBeInTheDocument();
+
+        // Item should be added in the cart.
+        act(() => {fireEvent.click(getAllByTestId('add-btn')[2])});
+        act(() => {fireEvent.click(getByTestId('cart-navlink'))});
+        expect( getByText("Shopping Cart") ).toBeInTheDocument();
+        expect( getByText('Nike DBreak-Type') ).toBeInTheDocument();
+        
+        // Item quantity should be incremented if added again.
+        act(() => {fireEvent.click(getByTestId('men-navlink'))});
+        expect( getByText("Men's Shoes") ).toBeInTheDocument();
+        act(() => {fireEvent.click(getAllByTestId('add-btn')[2])});
+        act(() => {fireEvent.click(getByTestId('cart-navlink'))});
+        expect( getByText("Shopping Cart") ).toBeInTheDocument();
+        expect( getByText('2') ).toBeInTheDocument();
     });
 })
