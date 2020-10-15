@@ -1,0 +1,32 @@
+.container {
+    background: linear-gradient(to right, #E2A64E, #a08149);
+    padding: 3%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container p {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+.container button {
+    cursor: pointer;
+    background: #1AC1F9;
+    width: 175px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    margin: 10px 0 0;
+    font-size: 1rem;
+    transition: all linear 250ms;
+}
+.container button:hover {
+    transform: scale(1.05);
+    background-color: #16a5d4;
+}

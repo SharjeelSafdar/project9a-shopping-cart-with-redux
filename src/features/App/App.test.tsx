@@ -164,4 +164,18 @@ describe('Tests for <App />', () => {
         expect( getAllByTestId('cart-item').length ).toEqual(2);
         expect( getByText('6') ).toBeInTheDocument();
     });
+
+    it('Checkout button in <Cart /> works properly', () => {
+        const { getByTestId, getAllByTestId, getByText } = renderApp('/cart');
+        expect( getAllByTestId('cart-item').length ).toEqual(2);
+        // Include both items for checkout
+        act(() => {fireEvent.click( getAllByTestId('include')[0] )})
+
+        act(() => {fireEvent.click( getByTestId('checkout-btn') )});
+        expect( getByTestId('checkout-page') ).toBeInTheDocument();
+
+        act(() => {fireEvent.click( getByTestId('cart-navlink') )});
+        expect( getByText('You have 0 items in your cart.') ).toBeInTheDocument();
+        expect( getByTestId('grand-total') ).toHaveTextContent('$0');
+    });
 })
