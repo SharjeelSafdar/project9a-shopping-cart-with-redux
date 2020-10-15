@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
 import { ProductCard } from './ProductCard';
 import { RootState } from '../../store/rootReducer';
 import styles from './ProductsIndex.module.css';
@@ -12,6 +13,7 @@ export const ProductsIndex: React.FC<{}> = () => {
         category === 'women' ? state.products.women :
         category === 'kids' ? state.products.kids : {}
     ));
+
     const pageHeading = (
         category === 'men' 
             ? "Men's Shoes" 
