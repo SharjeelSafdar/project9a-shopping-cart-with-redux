@@ -32,7 +32,10 @@ export const Cart: React.FC<{}> = () => {
             .reduce((itemPrice, accPrice) => accPrice + itemPrice);
 
     const checkoutHandler = () => {
-        const checkoutShoesIds = cartItems.map( item => item.id );
+        const checkoutShoesIds = 
+            cartItems
+                .filter( item => item.includedInSum )
+                .map( item => item.id );
         dispatch( batchRemove({ ids: checkoutShoesIds }) );
         navigateTo('/cart/checkout');
     }

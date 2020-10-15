@@ -165,7 +165,7 @@ describe('Tests for <App />', () => {
         expect( getByText('6') ).toBeInTheDocument();
     });
 
-    it('Checkout button in <Cart /> works properly', () => {
+    it('Checkout button in <Cart /> works properly with complete checkout', () => {
         const { getByTestId, getAllByTestId, getByText } = renderApp('/cart');
         expect( getAllByTestId('cart-item').length ).toEqual(2);
         // Include both items for checkout
@@ -176,6 +176,19 @@ describe('Tests for <App />', () => {
 
         act(() => {fireEvent.click( getByTestId('cart-navlink') )});
         expect( getByText('You have 0 items in your cart.') ).toBeInTheDocument();
+        expect( getByTestId('grand-total') ).toHaveTextContent('$0');
+    });
+
+    it('Checkout button in <Cart /> works properly with partial checkout', () => {
+        const { getByTestId, getAllByTestId, getByText } = renderApp('/cart');
+        expect( getAllByTestId('cart-item').length ).toEqual(2);
+        
+        act(() => {fireEvent.click( getByTestId('checkout-btn') )});
+        expect( getByTestId('checkout-page') ).toBeInTheDocument();
+        
+        act(() => {fireEvent.click( getByTestId('cart-navlink') )});
+        expect( getByText('You have 1 items in your cart.') ).toBeInTheDocument();
+        expect( getAllByTestId('cart-item').length ).toEqual(1);
         expect( getByTestId('grand-total') ).toHaveTextContent('$0');
     });
 })
