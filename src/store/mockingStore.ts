@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import rootReducer, { RootState } from './rootReducer';
 
-const initialState: RootState = {
+export const initialTestState: RootState = {
     products: {
         men: {
             "3f60de24-1815-4d88-a8dc-5ceda3f41bdc": {
                 "name": "Air Jordan 1 Mid",
                 "price": "$115",
                 "category": "Men's Shoes",
-                "description": "<p>The Air Jordan 1 Mid Shoe is inspired by the first AJ1, offering OG fans a look at how far the Jordan brand has come since 1985.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: White/White/White</li><li class=\"description-preview__style-color ncss-li\">Style: 554724-130</li></ul>",
+                "description": "The Air Jordan 1 Mid Shoe is inspired by the first AJ1, offering OG fans a look at how far the Jordan brand has come since 1985.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/i1-d2f41ddc-a08e-443a-8eb0-6960ebb4a408/air-jordan-1-mid-shoe-1zMCFJ.jpg"
                 ]
@@ -17,7 +17,7 @@ const initialState: RootState = {
                 "name": "Nike Air Zoom-Type",
                 "price": "$150",
                 "category": "Men's Shoes",
-                "description": "<p>Celebrate Nike innovation and sports heritage in the Nike Air Zoom-Type. It brings a deconstructed, DIY aesthetic to the streets with its zigzag stitching, and colors inspired by Japan's street culture. The stacked foam at the heel and contrast-colored Zoom Air cushioning at the forefoot use the same technology used by the world's elite athletes for an unparalleled ride.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: Black/Menta/Orange Trance/Summit White</li><li class=\"description-preview__style-color ncss-li\">Style: CJ2033-010</li></ul>",
+                "description": "Celebrate Nike innovation and sports heritage in the Nike Air Zoom-Type. It brings a deconstructed, DIY aesthetic to the streets with its zigzag stitching, and colors inspired by Japan's street culture. The stacked foam at the heel and contrast-colored Zoom Air cushioning at the forefoot use the same technology used by the world's elite athletes for an unparalleled ride.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/5c1e3a90-b2b7-479c-b567-3b50903cf9da/air-zoom-type-mens-shoe-PZR40V.jpg",
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/d7ef3a93-8863-4d9b-9ee1-ba312bc97c18/air-zoom-type-mens-shoe-PZR40V.jpg",
@@ -36,7 +36,7 @@ const initialState: RootState = {
                 "name": "Nike DBreak-Type",
                 "price": "$90",
                 "category": "Men's Shoes",
-                "description": "<p>Deconstruct the past and step into the present with the Nike DBreak-Type. The airy mesh upper and exaggerated stitching add a bold, fresh look onto early Bowerman prototypes pulled from the archives. Retro suede and heel clips designed for support keep you connected to history while the rubber Waffle outsole features flashy angling at the back for a modern look.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: Black/Summit White/Anthracite/Menta</li><li class=\"description-preview__style-color ncss-li\">Style: CJ1156-001</li></ul>",
+                "description": "Deconstruct the past and step into the present with the Nike DBreak-Type. The airy mesh upper and exaggerated stitching add a bold, fresh look onto early Bowerman prototypes pulled from the archives. Retro suede and heel clips designed for support keep you connected to history while the rubber Waffle outsole features flashy angling at the back for a modern look.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/2321ca0e-db85-4536-99e6-a1460dbbfe38/dbreak-type-mens-shoes-WLqGdp.jpg"
                 ]
@@ -47,7 +47,7 @@ const initialState: RootState = {
                 "name": "Nike React Infinity Run Flyknit",
                 "price": "$160",
                 "category": "Women's Shoes",
-                "description": "<p>The Nike React Infinity Run Flyknit is designed to help reduce injury and keep you on the run. More foam and improved upper details provide a secure and cushioned feel. Refreshed colors bring the bright energy to your feet while you crush your miles. Lace up and feel the potential, mile after mile.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: White/Volt/Pink Glow/Black</li><li class=\"description-preview__style-color ncss-li\">Style: CZ7993-100</li></ul>",
+                "description": "The Nike React Infinity Run Flyknit is designed to help reduce injury and keep you on the run. More foam and improved upper details provide a secure and cushioned feel. Refreshed colors bring the bright energy to your feet while you crush your miles. Lace up and feel the potential, mile after mile.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/ccf7f85e-6ee1-40cc-9a40-db3932aed4d8/react-infinity-run-flyknit-womens-running-shoe-c54NMG.jpg",
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/20031c5e-ac39-40d0-b600-16fcac6509f1/react-infinity-run-flyknit-womens-running-shoe-c54NMG.jpg",
@@ -63,7 +63,7 @@ const initialState: RootState = {
                 "name": "Nike Pegasus Trail 2",
                 "price": "$130",
                 "category": "Women's Shoes",
-                "description": "<p>Find your wings on the path less traveled. The Nike Pegasus Trail 2 delivers durability and responsiveness to runners, trail athletes and outdoor enthusiasts. Versatile enough for your everyday miles, it features an ideal fit with plush cushioning and tough traction.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: Pure Platinum/Fossil/Limelight/Laser Orange</li><li class=\"description-preview__style-color ncss-li\">Style: CK4309-001</li></ul>",
+                "description": "Find your wings on the path less traveled. The Nike Pegasus Trail 2 delivers durability and responsiveness to runners, trail athletes and outdoor enthusiasts. Versatile enough for your everyday miles, it features an ideal fit with plush cushioning and tough traction.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/b6663ee6-dc04-442c-9f7d-bdc85163a624/pegasus-trail-2-womens-trail-running-shoe-JNVF2M.jpg",
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/6215b49b-354d-4a29-8ed9-887019879e73/pegasus-trail-2-womens-trail-running-shoe-JNVF2M.jpg",
@@ -79,7 +79,7 @@ const initialState: RootState = {
                 "name": "Nike Juniper Trail",
                 "price": "$70",
                 "category": "Women's Shoes",
-                "description": "<p>The Nike Juniper Trail delivers a consistent ride for your off-road runs. It's built for rocky trails, helping you stay focused on the path ahead. Tough traction mixes with a lightweight design so you can keep moving when tackling challenging terrain.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: Ghost/Pure Platinum/Limelight/Laser Orange</li><li class=\"description-preview__style-color ncss-li\">Style: CW3809-002</li></ul>",
+                "description": "The Nike Juniper Trail delivers a consistent ride for your off-road runs. It's built for rocky trails, helping you stay focused on the path ahead. Tough traction mixes with a lightweight design so you can keep moving when tackling challenging terrain.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/e7ee55cb-3644-45a9-aa78-46d6315082ea/juniper-trail-womens-trail-shoe-wMLK7B.jpg",
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/f22600e6-72f5-4db2-8f68-fa5e2f24baf0/juniper-trail-womens-trail-shoe-wMLK7B.jpg",
@@ -97,7 +97,7 @@ const initialState: RootState = {
                 "name": "Kyrie 6",
                 "price": "$80",
                 "category": "Kids’ Shoes",
-                "description": "<p>Kyrie's game is serious business, but you know he's having a blast. The Kyrie 6 for little kids has all the speedy, sporty style of the shoe he wears that's made to play every day.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: White/White</li><li class=\"description-preview__style-color ncss-li\">Style: BQ5600-102</li></ul>",
+                "description": "Kyrie's game is serious business, but you know he's having a blast. The Kyrie 6 for little kids has all the speedy, sporty style of the shoe he wears that's made to play every day.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/d9bc1f59-4fc1-4563-8a64-cfacccfbd048/kyrie-6-little-kids-shoe-nkWtfT.jpg"
                 ]
@@ -106,7 +106,7 @@ const initialState: RootState = {
                 "name": "Nike Force 1",
                 "price": "$62",
                 "category": "Kids’ Shoes",
-                "description": "<p>The legend lives on in the Nike Force 1, with an iconic look and plenty of cushioning for comfort with every step.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: White/White/White</li><li class=\"description-preview__style-color ncss-li\">Style: 314193-117</li></ul>",
+                "description": "The legend lives on in the Nike Force 1, with an iconic look and plenty of cushioning for comfort with every step.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/be5ce5a3-cde7-42b3-aad9-e411711e66e7/force-1-little-kids-shoe-BLTBRxK1.jpg",
                     "https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,so_0/377b92d2-ceeb-4e3c-ae91-97091cf83370/force-1-little-kids-shoe-BLTBRxK1.jpg",
@@ -123,7 +123,7 @@ const initialState: RootState = {
                 "name": "Nike Kawa",
                 "price": "$20.77",
                 "category": "Kids’ Shoes",
-                "description": "<p>The Nike Kawa Little/Big&nbsp;Kids' Slide&nbsp;helps feet recover after play and competition with a strap that conforms to the foot, ultra-soft cushioning and a flexible outsole.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: Atomic Violet/Hyper Grape/Hyper Jade</li><li class=\"description-preview__style-color ncss-li\">Style: 819352-500</li></ul>",
+                "description": "The Nike Kawa Little/Big&nbsp;Kids' Slide&nbsp;helps feet recover after play and competition with a strap that conforms to the foot, ultra-soft cushioning and a flexible outsole.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/7f5c2f80-3187-44e3-9077-4bec7bc4f694/kawa-little-big-kids-slide-VXZxnZ.jpg",
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/6352d0c1-343a-4c0c-ad2b-54c59dd308af/kawa-little-big-kids-slide-VXZxnZ.jpg",
@@ -137,7 +137,7 @@ const initialState: RootState = {
                 "name": "Air Jordan 1 Mid",
                 "price": "$115",
                 "category": "Men's Shoes",
-                "description": "<p>The Air Jordan 1 Mid Shoe is inspired by the first AJ1, offering OG fans a look at how far the Jordan brand has come since 1985.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: White/White/White</li><li class=\"description-preview__style-color ncss-li\">Style: 554724-130</li></ul>",
+                "description": "The Air Jordan 1 Mid Shoe is inspired by the first AJ1, offering OG fans a look at how far the Jordan brand has come since 1985.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/i1-d2f41ddc-a08e-443a-8eb0-6960ebb4a408/air-jordan-1-mid-shoe-1zMCFJ.jpg"
                 ]
@@ -146,7 +146,7 @@ const initialState: RootState = {
                 "name": "Nike Air Zoom-Type",
                 "price": "$150",
                 "category": "Men's Shoes",
-                "description": "<p>Celebrate Nike innovation and sports heritage in the Nike Air Zoom-Type. It brings a deconstructed, DIY aesthetic to the streets with its zigzag stitching, and colors inspired by Japan's street culture. The stacked foam at the heel and contrast-colored Zoom Air cushioning at the forefoot use the same technology used by the world's elite athletes for an unparalleled ride.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: Black/Menta/Orange Trance/Summit White</li><li class=\"description-preview__style-color ncss-li\">Style: CJ2033-010</li></ul>",
+                "description": "Celebrate Nike innovation and sports heritage in the Nike Air Zoom-Type. It brings a deconstructed, DIY aesthetic to the streets with its zigzag stitching, and colors inspired by Japan's street culture. The stacked foam at the heel and contrast-colored Zoom Air cushioning at the forefoot use the same technology used by the world's elite athletes for an unparalleled ride.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/5c1e3a90-b2b7-479c-b567-3b50903cf9da/air-zoom-type-mens-shoe-PZR40V.jpg",
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/d7ef3a93-8863-4d9b-9ee1-ba312bc97c18/air-zoom-type-mens-shoe-PZR40V.jpg",
@@ -165,7 +165,7 @@ const initialState: RootState = {
                 "name": "Nike DBreak-Type",
                 "price": "$90",
                 "category": "Men's Shoes",
-                "description": "<p>Deconstruct the past and step into the present with the Nike DBreak-Type. The airy mesh upper and exaggerated stitching add a bold, fresh look onto early Bowerman prototypes pulled from the archives. Retro suede and heel clips designed for support keep you connected to history while the rubber Waffle outsole features flashy angling at the back for a modern look.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: Black/Summit White/Anthracite/Menta</li><li class=\"description-preview__style-color ncss-li\">Style: CJ1156-001</li></ul>",
+                "description": "Deconstruct the past and step into the present with the Nike DBreak-Type. The airy mesh upper and exaggerated stitching add a bold, fresh look onto early Bowerman prototypes pulled from the archives. Retro suede and heel clips designed for support keep you connected to history while the rubber Waffle outsole features flashy angling at the back for a modern look.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/2321ca0e-db85-4536-99e6-a1460dbbfe38/dbreak-type-mens-shoes-WLqGdp.jpg"
                 ]
@@ -174,7 +174,7 @@ const initialState: RootState = {
                 "name": "Nike React Infinity Run Flyknit",
                 "price": "$160",
                 "category": "Women's Shoes",
-                "description": "<p>The Nike React Infinity Run Flyknit is designed to help reduce injury and keep you on the run. More foam and improved upper details provide a secure and cushioned feel. Refreshed colors bring the bright energy to your feet while you crush your miles. Lace up and feel the potential, mile after mile.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: White/Volt/Pink Glow/Black</li><li class=\"description-preview__style-color ncss-li\">Style: CZ7993-100</li></ul>",
+                "description": "The Nike React Infinity Run Flyknit is designed to help reduce injury and keep you on the run. More foam and improved upper details provide a secure and cushioned feel. Refreshed colors bring the bright energy to your feet while you crush your miles. Lace up and feel the potential, mile after mile.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/ccf7f85e-6ee1-40cc-9a40-db3932aed4d8/react-infinity-run-flyknit-womens-running-shoe-c54NMG.jpg",
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/20031c5e-ac39-40d0-b600-16fcac6509f1/react-infinity-run-flyknit-womens-running-shoe-c54NMG.jpg",
@@ -190,7 +190,7 @@ const initialState: RootState = {
                 "name": "Nike Pegasus Trail 2",
                 "price": "$130",
                 "category": "Women's Shoes",
-                "description": "<p>Find your wings on the path less traveled. The Nike Pegasus Trail 2 delivers durability and responsiveness to runners, trail athletes and outdoor enthusiasts. Versatile enough for your everyday miles, it features an ideal fit with plush cushioning and tough traction.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: Pure Platinum/Fossil/Limelight/Laser Orange</li><li class=\"description-preview__style-color ncss-li\">Style: CK4309-001</li></ul>",
+                "description": "Find your wings on the path less traveled. The Nike Pegasus Trail 2 delivers durability and responsiveness to runners, trail athletes and outdoor enthusiasts. Versatile enough for your everyday miles, it features an ideal fit with plush cushioning and tough traction.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/b6663ee6-dc04-442c-9f7d-bdc85163a624/pegasus-trail-2-womens-trail-running-shoe-JNVF2M.jpg",
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/6215b49b-354d-4a29-8ed9-887019879e73/pegasus-trail-2-womens-trail-running-shoe-JNVF2M.jpg",
@@ -206,7 +206,7 @@ const initialState: RootState = {
                 "name": "Nike Juniper Trail",
                 "price": "$70",
                 "category": "Women's Shoes",
-                "description": "<p>The Nike Juniper Trail delivers a consistent ride for your off-road runs. It's built for rocky trails, helping you stay focused on the path ahead. Tough traction mixes with a lightweight design so you can keep moving when tackling challenging terrain.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: Ghost/Pure Platinum/Limelight/Laser Orange</li><li class=\"description-preview__style-color ncss-li\">Style: CW3809-002</li></ul>",
+                "description": "The Nike Juniper Trail delivers a consistent ride for your off-road runs. It's built for rocky trails, helping you stay focused on the path ahead. Tough traction mixes with a lightweight design so you can keep moving when tackling challenging terrain.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/e7ee55cb-3644-45a9-aa78-46d6315082ea/juniper-trail-womens-trail-shoe-wMLK7B.jpg",
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/f22600e6-72f5-4db2-8f68-fa5e2f24baf0/juniper-trail-womens-trail-shoe-wMLK7B.jpg",
@@ -222,7 +222,7 @@ const initialState: RootState = {
                 "name": "Kyrie 6",
                 "price": "$80",
                 "category": "Kids’ Shoes",
-                "description": "<p>Kyrie's game is serious business, but you know he's having a blast. The Kyrie 6 for little kids has all the speedy, sporty style of the shoe he wears that's made to play every day.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: White/White</li><li class=\"description-preview__style-color ncss-li\">Style: BQ5600-102</li></ul>",
+                "description": "Kyrie's game is serious business, but you know he's having a blast. The Kyrie 6 for little kids has all the speedy, sporty style of the shoe he wears that's made to play every day.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/d9bc1f59-4fc1-4563-8a64-cfacccfbd048/kyrie-6-little-kids-shoe-nkWtfT.jpg"
                 ]
@@ -231,7 +231,7 @@ const initialState: RootState = {
                 "name": "Nike Force 1",
                 "price": "$62",
                 "category": "Kids’ Shoes",
-                "description": "<p>The legend lives on in the Nike Force 1, with an iconic look and plenty of cushioning for comfort with every step.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: White/White/White</li><li class=\"description-preview__style-color ncss-li\">Style: 314193-117</li></ul>",
+                "description": "The legend lives on in the Nike Force 1, with an iconic look and plenty of cushioning for comfort with every step.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/be5ce5a3-cde7-42b3-aad9-e411711e66e7/force-1-little-kids-shoe-BLTBRxK1.jpg",
                     "https://static.nike.com/a/videos/t_PDP_1280_v1/f_auto,so_0/377b92d2-ceeb-4e3c-ae91-97091cf83370/force-1-little-kids-shoe-BLTBRxK1.jpg",
@@ -248,7 +248,7 @@ const initialState: RootState = {
                 "name": "Nike Kawa",
                 "price": "$20.77",
                 "category": "Kids’ Shoes",
-                "description": "<p>The Nike Kawa Little/Big&nbsp;Kids' Slide&nbsp;helps feet recover after play and competition with a strap that conforms to the foot, ultra-soft cushioning and a flexible outsole.</p><ul class=\"description-preview__features pt8-sm pb6-sm ncss-list-ul\"><li class=\"description-preview__color-description ncss-li\">Shown: Atomic Violet/Hyper Grape/Hyper Jade</li><li class=\"description-preview__style-color ncss-li\">Style: 819352-500</li></ul>",
+                "description": "The Nike Kawa Little/Big&nbsp;Kids' Slide&nbsp;helps feet recover after play and competition with a strap that conforms to the foot, ultra-soft cushioning and a flexible outsole.",
                 "images": [
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/7f5c2f80-3187-44e3-9077-4bec7bc4f694/kawa-little-big-kids-slide-VXZxnZ.jpg",
                     "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/6352d0c1-343a-4c0c-ad2b-54c59dd308af/kawa-little-big-kids-slide-VXZxnZ.jpg",
@@ -282,7 +282,7 @@ const initialState: RootState = {
 
 const createMockingStore = () => configureStore({
     reducer: rootReducer,
-    preloadedState: initialState,
+    preloadedState: initialTestState,
 });
 
 export default createMockingStore;
