@@ -1,5 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import { toggleInclude, decrementQuantity, incrementQuantity, removeFromCart } from './cartSlice';
 import { RiDeleteBin2Fill } from 'react-icons/ri';
 import styles from './CartItem.module.css';
@@ -12,6 +14,8 @@ export const CartItem: React.FC<Props> = ({
     item: { id, name, price, category, image, quantity, includedInSum }
 }) => {
     const dispatch = useDispatch();
+    const navigateTo = useNavigate();
+    const categoryId = category === "Men's Shoes" ? 'men' : category === "Woman's Shoes" ? 'women' : 'kids';
     return (
         <div className={styles.container} data-testid="cart-item">
             <div className={styles.left}>
@@ -23,11 +27,21 @@ export const CartItem: React.FC<Props> = ({
                         onChange={() => dispatch( toggleInclude({ id }) )}
                         data-testid="include"
                     />
-                    <img src={image} alt="shoe" title={name} data-testid="shoe-image" />
+                    <img
+                        src={image}
+                        alt="shoe"
+                        title={name}
+                        onClick={() => navigateTo(`/${categoryId}/${id}`)}
+                        data-testid="shoe-image"
+                    />
                 </div>
             </div>
             <div className={styles.right}>
-                <div className={styles.nameAndCategory}>
+                <div 
+                    className={styles.nameAndCategory}
+                    onClick={() => navigateTo(`/${categoryId}/${id}`)}
+                    data-testid="shoe-name"
+                >
                     <p>{name}</p>
                     <p>{category}</p>
                 </div>

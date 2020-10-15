@@ -29,6 +29,7 @@
     height: 70px;
     width: 70px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .right {
@@ -37,6 +38,10 @@
     grid-template-columns: 3fr 1fr 1fr 1fr;
 }
 
+.nameAndCategory {
+    cursor: pointer;
+    max-width: fit-content;
+}
 .nameAndCategory, .quantity, .price, .delete {
     align-self: center;
 }
@@ -143,9 +148,20 @@
         margin-right: 0;
     }
     .checkAndImg {
-        justify-content: flex-start;
+        display: grid;
+        grid-template-columns: 1fr;
     }
     .checkAndImg img {
+        grid-row: 1/2;
+        grid-column: 1/2;
         margin: 0 auto;
+    }
+    .checkAndImg input {
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+    .left img {
+        height: 100px;
+        width: 100px;
     }
 }
