@@ -3,7 +3,6 @@
     color: black;
     border-radius: 10px;
     padding: 10px;
-    min-width: 250px;
     position: fixed;
     bottom: 0;
     left: 50%;
@@ -15,29 +14,9 @@
     animation: inOut 1 4000ms linear;
 }
 
-.meta {
-    display: flex;
-    flex-direction: column;
-}
-
 .msg {
     font-size: 0.9rem;
-}
-
-.shoeData {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-}
-.image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 3px;
-}
-.name {
-    font-size: 0.8rem;
+    margin-right: 10px;
 }
 
 .icon {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, act, fireEvent } from '@testing-library/react';
+import { render, cleanup, act, fireEvent, waitForDomChange } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { Provider as ReduxProvider } from 'react-redux';
 import { ProductsIndex } from './ProductsIndex';

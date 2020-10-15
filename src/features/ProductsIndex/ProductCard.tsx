@@ -58,7 +58,7 @@ export const ProductCard: React.FC<Props> = ({ shoeId }) => {
                 <MdDescription /> Product Details
             </button>
             {showNotification
-                ? <Notification type="ADD" shoeName={shoe.name} shoeImage={shoe.images[0]} />
+                ? <Notification type="ADD" />
                 : null
             }
         </div>
