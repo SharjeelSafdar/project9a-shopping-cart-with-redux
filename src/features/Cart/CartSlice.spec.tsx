@@ -175,7 +175,7 @@ describe('Tests for <Cart />', () => {
                         category: "Men's Shoes",
                         price: 150,
                         image: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/5c1e3a90-b2b7-479c-b567-3b50903cf9da/air-zoom-type-mens-shoe-PZR40V.jpg",
-                        quantity: 3,
+                        quantity: 1,
                         includedInSum: false,
                     }
                 }
@@ -198,6 +198,64 @@ describe('Tests for <Cart />', () => {
                     price: 150,
                     image: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/5c1e3a90-b2b7-479c-b567-3b50903cf9da/air-zoom-type-mens-shoe-PZR40V.jpg",
                     quantity: 4,
+                    includedInSum: false,
+                }
+            ]
+        );
+
+        expect(
+            cart(
+                [
+                    {
+                        id: "3f60de24-1815-4d88-a8dc-5ceda3f41bdc",
+                        name: "Air Jordan 1 Mid",
+                        category: "Men's Shoes",
+                        price: 115,
+                        image: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/i1-d2f41ddc-a08e-443a-8eb0-6960ebb4a408/air-jordan-1-mid-shoe-1zMCFJ.jpg",
+                        quantity: 2,
+                        includedInSum: false,
+                    },
+                    {
+                        id: "d52fd362-1080-46b3-a43c-d64f7a6825ab",
+                        name: "Nike Air Zoom-Type",
+                        category: "Men's Shoes",
+                        price: 150,
+                        image: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/5c1e3a90-b2b7-479c-b567-3b50903cf9da/air-zoom-type-mens-shoe-PZR40V.jpg",
+                        quantity: 3,
+                        includedInSum: false,
+                    }
+                ],
+                {
+                    type: addToCart.toString(),
+                    payload: {
+                        id: "d52fd362-1080-46b3-a43c-d64f7a6825ab",
+                        name: "Nike Air Zoom-Type",
+                        category: "Men's Shoes",
+                        price: 150,
+                        image: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/5c1e3a90-b2b7-479c-b567-3b50903cf9da/air-zoom-type-mens-shoe-PZR40V.jpg",
+                        quantity: 3,
+                        includedInSum: false,
+                    }
+                }
+            )
+        ).toEqual(
+            [
+                {
+                    id: "3f60de24-1815-4d88-a8dc-5ceda3f41bdc",
+                    name: "Air Jordan 1 Mid",
+                    category: "Men's Shoes",
+                    price: 115,
+                    image: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/i1-d2f41ddc-a08e-443a-8eb0-6960ebb4a408/air-jordan-1-mid-shoe-1zMCFJ.jpg",
+                    quantity: 2,
+                    includedInSum: false,
+                },
+                {
+                    id: "d52fd362-1080-46b3-a43c-d64f7a6825ab",
+                    name: "Nike Air Zoom-Type",
+                    category: "Men's Shoes",
+                    price: 150,
+                    image: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/5c1e3a90-b2b7-479c-b567-3b50903cf9da/air-zoom-type-mens-shoe-PZR40V.jpg",
+                    quantity: 6,
                     includedInSum: false,
                 }
             ]
