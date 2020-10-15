@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { FaCartPlus } from 'react-icons/fa';
 import { MdDescription } from 'react-icons/md';
 
+import { Notification } from '../';
 import { RootState } from '../../store/rootReducer';
 import { addToCart } from '../Cart/cartSlice';
 import styles from './ProductCard.module.css';
@@ -18,6 +19,7 @@ export const ProductCard: React.FC<Props> = ({ shoeId }) => {
     const dispatch = useDispatch();
     const { category } = useParams();
     const navigateTo = useNavigate();
+    const [ showNotification, setShowNotification ] = useState(false);
 
     const add = () => {
         const item: CartItem = {
@@ -30,6 +32,9 @@ export const ProductCard: React.FC<Props> = ({ shoeId }) => {
             includedInSum: false,
         };
         dispatch( addToCart(item) );
+
+        setShowNotification(true);
+        setTimeout(() => setShowNotification(false), 4000);
     }
 
     return (
@@ -52,6 +57,10 @@ export const ProductCard: React.FC<Props> = ({ shoeId }) => {
             >
                 <MdDescription /> Product Details
             </button>
+            {showNotification
+                ? <Notification type="ADD" shoeName={shoe.name} shoeImage={shoe.images[0]} />
+                : null
+            }
         </div>
     )
 }

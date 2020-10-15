@@ -1,0 +1,68 @@
+.container {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 250px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    animation: inOut 1 4000ms linear;
+}
+
+.meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.msg {
+    font-size: 0.9rem;
+}
+
+.shoeData {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 3px;
+}
+.name {
+    font-size: 0.8rem;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    padding: 15px;
+    margin-left: 5px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: rgba(0,0,0,0.05);
+}
+
+@keyframes inOut {
+    0% {
+        transform: translate(-50%, 110%);
+    }
+    10% {
+        transform: translate(-50%, -20px);
+    }
+    90% {
+        transform: translate(-50%, -20px);
+    }
+    100% {
+        transform: translate(-50%, 110%);
+    }
+}

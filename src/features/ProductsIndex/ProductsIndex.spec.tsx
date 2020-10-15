@@ -69,4 +69,12 @@ describe('Tests for <ProductsIndex />', () => {
         act(() => {fireEvent.click(getAllByTestId('details-btn')[0])});
         expect( getByText('Air Jordan 1 Mid') ).toBeInTheDocument();
     });
+
+    it('Notification appears when shoe is added to cart', () => {
+        const { getByText, getByTestId, getAllByTestId } = renderProductsIndex('/men');
+        
+        act(() => {fireEvent.click( getAllByTestId('add-btn')[2] )});
+        expect( getByTestId('notification') ).toBeInTheDocument();
+        expect( getByText('Added Successfully') ).toBeInTheDocument();
+    });
 })
