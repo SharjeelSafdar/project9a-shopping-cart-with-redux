@@ -2,9 +2,10 @@ import React from 'react';
 import { render, cleanup, act, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider as ReduxProvider } from 'react-redux';
+
 import { Cart } from './Cart';
 import { CartItem } from './CartItem';
-import createMockingStore from '../../store/mockingStore';
+import createMockingStore, { initialTestState } from '../../store/mockingStore';
 
 const renderCart = () => render(
     <MemoryRouter>
@@ -45,28 +46,21 @@ describe('Tests for <Cart />', () => {
     });
 
     it('Displays shoe data properly', () => {
-        const item: CartItem = {
-            id: "3f60de24-1815-4d88-a8dc-5ceda3f41bdc",
-            name: "Air Jordan 1 Mid",
-            category: "Men's Shoes",
-            price: 115,
-            image: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto/i1-d2f41ddc-a08e-443a-8eb0-6960ebb4a408/air-jordan-1-mid-shoe-1zMCFJ.jpg",
-            quantity: 3,
-            includedInSum: false,
-        }
         const { getByText, getByTestId } = render(
             <ReduxProvider store={createMockingStore()}>
-                <CartItem item={item} />
+                <MemoryRouter>
+                    <CartItem item={initialTestState.cart[1]} />
+                </MemoryRouter>
             </ReduxProvider>
         );
         expect( getByTestId('include') ).toBeInTheDocument();
         expect( getByTestId('shoe-image') ).toBeInTheDocument();
-        expect( getByText('Air Jordan 1 Mid') ).toBeInTheDocument();
+        expect( getByText('Nike Air Zoom-Type') ).toBeInTheDocument();
         expect( getByText("Men's Shoes") ).toBeInTheDocument();
         expect( getByText('Quantity') ).toBeInTheDocument();
         expect( getByText('3') ).toBeInTheDocument();
-        expect( getByText('$345') ).toBeInTheDocument();
-        expect( getByText('$115 x 3') ).toBeInTheDocument();
+        expect( getByText('$450') ).toBeInTheDocument();
+        expect( getByText('$150 x 3') ).toBeInTheDocument();
     });
 
     it('Include checkbox toggles correctly', () => {
