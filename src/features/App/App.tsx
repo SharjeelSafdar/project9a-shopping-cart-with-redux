@@ -1,18 +1,21 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 // Custom components
-import { NavBar, HomePage, Footer, ProductsIndex, Cart } from '../';
+import { NavBar, HomePage, Footer, ProductsIndex, Cart, ProductDetails } from '../';
 
 export const App: React.FC<{}> = () => {
   return (
-    <div className="App">
+    <>
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/:category" element={<ProductsIndex />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path=":category" element={<><Outlet /></>}>
+          <Route path="/" element={<ProductsIndex />} />
+          <Route path=":shoeId" element={<ProductDetails />} />
+        </Route>
       </Routes>
       <Footer />
-    </div>
+    </>
   );
 }

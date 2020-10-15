@@ -21,38 +21,38 @@ describe('Tests for <App />', () => {
     });
 
     it("Renders Men's shows at '/men' ", () => {
-        const { getByText, getByTestId, getAllByTestId } = renderApp('/men');
-        expect( getByText("Men's Shoes") ).toBeInTheDocument();
+        const { getByTestId, getAllByTestId } = renderApp('/men');
+        expect( getByTestId('heading') ).toHaveTextContent("Men's Shoes");
         expect( getByTestId('products-index-page') ).toBeInTheDocument();
         expect( getAllByTestId('shoe-card').length ).toBeGreaterThan(0);
     });
 
     it("Renders Women's shows at '/women' ", () => {
-        const { getByText, getByTestId, getAllByTestId } = renderApp('/women');
-        expect( getByText("Women's Shoes") ).toBeInTheDocument();
+        const { getByTestId, getAllByTestId } = renderApp('/women');
+        expect( getByTestId('heading') ).toHaveTextContent("Women's Shoes");
         expect( getByTestId('products-index-page') ).toBeInTheDocument();
         expect( getAllByTestId('shoe-card').length ).toBeGreaterThan(0);
     });
 
     it("Renders Kids' shows at '/kids' ", () => {
-        const { getByText, getByTestId, getAllByTestId } = renderApp('/kids');
-        expect( getByText("Kids' Shoes") ).toBeInTheDocument();
+        const { getByTestId, getAllByTestId } = renderApp('/kids');
+        expect( getByTestId('heading') ).toHaveTextContent("Kids' Shoes");
         expect( getByTestId('products-index-page') ).toBeInTheDocument();
         expect( getAllByTestId('shoe-card').length ).toBeGreaterThan(0);
     });
 
     it("Navigation buttons in <NavBar /> work correctly", () => {
-        const { getByText, getByTestId } = renderApp();
+        const { getByTestId } = renderApp();
         expect( getByTestId('home-page') ).toBeInTheDocument();
 
         act(() => {fireEvent.click( getByTestId('men-navlink'))});
-        expect( getByText("Men's Shoes") ).toBeInTheDocument();
+        expect( getByTestId('heading') ).toHaveTextContent("Men's Shoes");
 
         act(() => {fireEvent.click( getByTestId('women-navlink'))});
-        expect( getByText("Women's Shoes") ).toBeInTheDocument();
+        expect( getByTestId('heading') ).toHaveTextContent("Women's Shoes");
 
         act(() => {fireEvent.click( getByTestId('kids-navlink'))});
-        expect( getByText("Kids' Shoes") ).toBeInTheDocument();
+        expect( getByTestId('heading') ).toHaveTextContent("Kids' Shoes");
 
         act(() => {fireEvent.click( getByTestId('home-navlink'))});
         expect( getByTestId('home-page') ).toBeInTheDocument();
@@ -65,29 +65,29 @@ describe('Tests for <App />', () => {
     });
 
     it("Link to Men's Shoes in <HomePage /> work correctly", () => {
-        const { getByText, getByTestId } = renderApp();
+        const { getByTestId } = renderApp();
 
         act(() => {fireEvent.click( getByTestId('men-collection'))});
-        expect( getByText("Men's Shoes") ).toBeInTheDocument();
+        expect( getByTestId('heading') ).toHaveTextContent("Men's Shoes");
     });
 
     it("Link to Women's Shoes in <HomePage /> work correctly", () => {
-        const { getByText, getByTestId } = renderApp();
+        const { getByTestId } = renderApp();
 
         act(() => {fireEvent.click( getByTestId('women-collection'))});
-        expect( getByText("Women's Shoes") ).toBeInTheDocument();
+        expect( getByTestId('heading') ).toHaveTextContent("Women's Shoes");
     });
 
     it("Link to Kids' Shoes in <HomePage /> work correctly", () => {
-        const { getByText, getByTestId } = renderApp();
+        const { getByTestId } = renderApp();
 
         act(() => {fireEvent.click( getByTestId('kids-collection'))});
-        expect( getByText("Kids' Shoes") ).toBeInTheDocument();
+        expect( getByTestId('heading') ).toHaveTextContent("Kids' Shoes");
     });
 
     it('Add to cart button in <ProductCard /> works correctly', () => {
         const { getAllByTestId, getByTestId, getByText } = renderApp('/men');
-        expect( getByText("Men's Shoes") ).toBeInTheDocument();
+        expect( getByTestId('heading') ).toHaveTextContent("Men's Shoes");
 
         // Item should be added in the cart.
         act(() => {fireEvent.click(getAllByTestId('add-btn')[2])});
@@ -97,10 +97,71 @@ describe('Tests for <App />', () => {
         
         // Item quantity should be incremented if added again.
         act(() => {fireEvent.click(getByTestId('men-navlink'))});
-        expect( getByText("Men's Shoes") ).toBeInTheDocument();
+        expect( getByTestId('heading') ).toHaveTextContent("Men's Shoes");
         act(() => {fireEvent.click(getAllByTestId('add-btn')[2])});
         act(() => {fireEvent.click(getByTestId('cart-navlink'))});
         expect( getByText("Shopping Cart") ).toBeInTheDocument();
         expect( getByText('2') ).toBeInTheDocument();
+    });
+
+    it('Link to <ProductDetails /> in <CartItem /> image works correctly', () => {
+        const { getByTestId, getByText, getAllByTestId } = renderApp('/cart');
+        expect( getByText('Shopping Cart') ).toBeInTheDocument();
+
+        act(() => {fireEvent.click(getAllByTestId('shoe-image')[0])});
+        expect( getByTestId('details-page') ).toBeInTheDocument();
+        expect( getByText('Air Jordan 1 Mid') ).toBeInTheDocument();
+    });
+
+    it('Link to <ProductDetails /> in <CartItem /> shoe name works correctly', () => {
+        const { getByTestId, getByText, getAllByTestId } = renderApp('/cart');
+        expect( getByText('Shopping Cart') ).toBeInTheDocument();
+
+        act(() => {fireEvent.click(getAllByTestId('shoe-name')[0])});
+        expect( getByTestId('details-page') ).toBeInTheDocument();
+        expect( getByText('Air Jordan 1 Mid') ).toBeInTheDocument();
+    });
+
+    it('Add to cart button in <ProductDetails /> works correctly', () => {
+        const { getByTestId, getByText, getAllByTestId } = renderApp('/men/891d4a42-0d8f-4f31-b201-58b3383887c8');
+        expect( getByTestId('details-page') ).toBeInTheDocument();
+        expect( getByText('Nike DBreak-Type') ).toBeInTheDocument();
+
+        act(() => {fireEvent.click(getByTestId('addtocart-btn'))});
+
+        act(() => {fireEvent.click(getByTestId('cart-navlink'))});
+        expect( getByText('Nike DBreak-Type') ).toBeInTheDocument();
+        expect( getAllByTestId('cart-item').length ).toEqual(3);
+    });
+
+    it('Add to cart button in <ProductDetails /> works correctly for quantity > 1', () => {
+        const { getByTestId, getByText, getAllByTestId } = renderApp('/men/891d4a42-0d8f-4f31-b201-58b3383887c8');
+        const incrementBtn = getByTestId('increment-btn');
+
+        act(() => {fireEvent.click(incrementBtn)});
+        act(() => {fireEvent.click(incrementBtn)});
+        act(() => {fireEvent.click(incrementBtn)});
+        expect( getByText('4') ).toBeInTheDocument();
+        act(() => {fireEvent.click(getByTestId('addtocart-btn'))});
+
+        act(() => {fireEvent.click(getByTestId('cart-navlink'))});
+        expect( getByText('Nike DBreak-Type') ).toBeInTheDocument();
+        expect( getAllByTestId('cart-item').length ).toEqual(3);
+        expect( getByText('4') ).toBeInTheDocument();
+    });
+
+    it('Add to cart button in <ProductDetails /> works correctly for quantity > 1', () => {
+        const { getByTestId, getByText, getAllByTestId } = renderApp('/men/d52fd362-1080-46b3-a43c-d64f7a6825ab');
+        const incrementBtn = getByTestId('increment-btn');
+
+        act(() => {fireEvent.click(incrementBtn)});
+        act(() => {fireEvent.click(incrementBtn)});
+        expect( getByText('3') ).toBeInTheDocument();
+        act(() => {fireEvent.click(getByTestId('addtocart-btn'))});
+
+        act(() => {fireEvent.click(getByTestId('cart-navlink'))});
+        expect( getByText('Nike Air Zoom-Type') ).toBeInTheDocument();
+        expect( getAllByTestId('cart-item').length ).toEqual(2);
+        expect( getByText('6') ).toBeInTheDocument();
     });
 })

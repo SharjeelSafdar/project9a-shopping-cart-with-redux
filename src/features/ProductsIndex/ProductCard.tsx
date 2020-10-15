@@ -1,10 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store/rootReducer';
+import { useParams, useNavigate } from 'react-router-dom';
 import { FaCartPlus } from 'react-icons/fa';
 import { MdDescription } from 'react-icons/md';
 
+import { RootState } from '../../store/rootReducer';
 import { addToCart } from '../Cart/cartSlice';
 import styles from './ProductCard.module.css';
 
@@ -15,6 +16,8 @@ interface Props {
 export const ProductCard: React.FC<Props> = ({ shoeId }) => {
     const shoe: ShoeData = useSelector((state: RootState) => state.products.shoesById[shoeId]);
     const dispatch = useDispatch();
+    const { category } = useParams();
+    const navigateTo = useNavigate();
 
     const add = () => {
         const item: CartItem = {
@@ -42,7 +45,11 @@ export const ProductCard: React.FC<Props> = ({ shoeId }) => {
             >
                 <FaCartPlus /> Add to Cart
             </button>
-            <button className={styles.details} data-testid="details-btn">
+            <button
+                className={styles.details}
+                onClick={() => navigateTo(`/${category}/${shoeId}`)}
+                data-testid="details-btn"
+            >
                 <MdDescription /> Product Details
             </button>
         </div>

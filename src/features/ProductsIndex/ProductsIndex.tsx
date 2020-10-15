@@ -23,7 +23,7 @@ export const ProductsIndex: React.FC<{}> = () => {
     );
     return (
         <div className={styles.container} data-testid="products-index-page">
-            <h2 className={styles.heading}>{pageHeading}</h2>
+            <h2 className={styles.heading} data-testid="heading">{pageHeading}</h2>
             <div className={styles.cards}>
                 {ids && ids.map( id => (
                     <ProductCard shoeId={id} key={id} />
