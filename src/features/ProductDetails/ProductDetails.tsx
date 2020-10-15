@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import cx from 'classnames';
 import { FaCartPlus, FaShoppingCart } from 'react-icons/fa';
 
+import { Notification } from '../';
 import { RootState } from '../../store/rootReducer';
 import { addToCart } from '../Cart/cartSlice';
 import styles from './ProductDetails.module.css';
@@ -15,6 +16,7 @@ export const ProductDetails: React.FC<{}> = () => {
     const dispatch = useDispatch();
     const [ quantity, setQuantity] = useState(1);
     const [ activeImage, setActiveImage ] = useState(0);
+    const [ showNotification, setShowNotification ] = useState(false);
 
     const addHandler = () => {
         const shoeItem: CartItem = {
@@ -27,6 +29,9 @@ export const ProductDetails: React.FC<{}> = () => {
             includedInSum: false,
         };
         dispatch( addToCart(shoeItem) );
+
+        setShowNotification(true);
+        setTimeout(() => setShowNotification(false), 4000);
     }
     return (
         <div className={styles.container} data-testid="details-page">
@@ -87,6 +92,10 @@ export const ProductDetails: React.FC<{}> = () => {
                     </button>
                 </div>
             </div>
+            {showNotification
+                ? <Notification type="ADD" />
+                : null
+            }
         </div>
     )
 }

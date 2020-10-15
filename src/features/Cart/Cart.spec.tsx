@@ -110,4 +110,14 @@ describe('Tests for <Cart />', () => {
         act( () => {fireEvent.click(deleteBtns[1])} );
         expect( getByText('You have 0 items in your cart.') ).toBeInTheDocument();
     });
+
+    it('Notification appears when shoe is removed from cart', () => {
+        const { getByText, getByTestId, getAllByTestId } = renderCart();
+        
+        expect( getAllByTestId('cart-item').length ).toEqual(2);
+        act(() => {fireEvent.click( getAllByTestId('delete-btn')[0] )});
+        expect( getAllByTestId('cart-item').length ).toEqual(1);
+        expect( getByTestId('notification') ).toBeInTheDocument();
+        expect( getByText('Removed Successfully') ).toBeInTheDocument();
+    });
 })

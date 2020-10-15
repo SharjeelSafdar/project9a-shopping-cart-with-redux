@@ -97,4 +97,12 @@ describe('Tests for <App />', () => {
         expect( getByText('$115') ).toBeInTheDocument();
         expect( decrementBtn ).toBeDisabled();
     });
+
+    it('Notification appears when shoe is added to cart', () => {
+        const { getByText, getByTestId } = renderComp(TestEntries.MEN_SHOE_0);
+        
+        act(() => {fireEvent.click( getByTestId('addtocart-btn') )});
+        expect( getByTestId('notification') ).toBeInTheDocument();
+        expect( getByText('Added Successfully') ).toBeInTheDocument();
+    });
 });

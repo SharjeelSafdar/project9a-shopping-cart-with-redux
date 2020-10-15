@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { Notification } from '../';
 import { batchRemove } from './cartSlice';
 import { RootState } from '../../store/rootReducer';
 import styles from './Cart.module.css';
@@ -11,7 +12,20 @@ export const Cart: React.FC<{}> = () => {
     const cartItems: CartItem[] = useSelector((state: RootState) => state.cart);
     const dispatch = useDispatch();
     const navigateTo = useNavigate();
+    const [ numPreviousItems, setNumPreviousItems ] = useState(cartItems.length);
+    const [ showNotification, setShowNotification ] = useState(false);
 
+    useEffect(() => {
+        if (cartItems.length < numPreviousItems) {
+            setShowNotification(true)
+            setTimeout(() => setShowNotification(false), 4000);
+            setNumPreviousItems(cartItems.length);
+        }
+        else if (cartItems.length > numPreviousItems) {
+            setNumPreviousItems(cartItems.length);
+        }
+    }, [cartItems.length, numPreviousItems]);
+    
     const grandTotal = cartItems.length === 0 ? 0 :
         cartItems
             .map(item => item.includedInSum ? item.price * item.quantity : 0)
@@ -44,6 +58,10 @@ export const Cart: React.FC<{}> = () => {
                     </button>
                 </div>
             </div>
+            {showNotification
+                ? <Notification type="REMOVE" />
+                : null
+            }
         </div>
     )
 }
